@@ -2,10 +2,12 @@ package by.introduction.fourth.classes01.main;
 
 import java.util.Objects;
 
-public class Test1 {
-
+public class Test1 {	
 	private int x;
 	private int y;
+	
+	public Test1 () {
+	}
 
 	public Test1 (int x, int y) {
 		this.x = x; 
@@ -21,30 +23,11 @@ public class Test1 {
 	}
 
 	public int getY() {
-		return y;
-	
+		return y;	
 	}
 
 	public void setY(int y) {
 		this.y = y;
-	}
-	
-	public int sum () {
-		
-		return x + y;
-	}
-	
-	public int max () {
-		int res = 0; 
-		
-		if (x > y ) {
-			res = x ;
-			
-		} else if (y > x) {
-			res = y; 
-		}
-		
-		return res;				
 	}
 
 	@Override

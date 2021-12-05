@@ -1,6 +1,4 @@
 package by.introduction.fourth.classes04.logic;
-
-
 import by.introduction.fourth.classes04.entity.Train;
 
 public class TrainLogic {

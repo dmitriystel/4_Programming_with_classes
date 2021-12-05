@@ -37,7 +37,6 @@ public class Input {
 		}
 		
 		while (!TrainLogic.findByNumber(trains, userNumber));
-		
-		return userNumber;
+			return userNumber;
 	}	
 }

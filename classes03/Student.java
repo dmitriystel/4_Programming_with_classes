@@ -6,64 +6,56 @@ import java.util.Objects;
 public class Student {
 
 	private String surnameAndInit; 
-	private int groupNumber;	  
-	private int grades[];		   	
-	private int nGrades;		   
+	private int groupNumber;	   
+	private int grades[];		   
 	
-	 public Student(String surnameAndInit, int groupNumber) { 
-		 														
-		 this.surnameAndInit = surnameAndInit;		
-		 this.groupNumber = groupNumber;		
-		 grades = new int[5];				
+	public Student() {
+	}
+	
+	public Student(String surnameAndInit, int groupNumber) { 		 														
+		this.surnameAndInit = surnameAndInit;		
+		this.groupNumber = groupNumber;		
+		grades = new int[5];				
      }
 	 	 
-		public String getSurnameAndInit() {
-			return surnameAndInit;
-		}
+	public String getSurnameAndInit() {
+		return surnameAndInit;
+	}
 		
-		public void setSurnameAndInit(String surnameAndInit) {
-			this.surnameAndInit = surnameAndInit;
-		}
+	public void setSurnameAndInit(String surnameAndInit) {
+		this.surnameAndInit = surnameAndInit;
+	}
 		
-		public int getGroupNumber() {
-			return groupNumber;
-			
-		}
+	public int getGroupNumber() {
+		return groupNumber;			
+	}
 		
-		public void setGroupNumber(int groupNumber) {
-			this.groupNumber = groupNumber;
-		}	 
-	 
-	 boolean addGrade(int grade) { 
-		  if (nGrades >= 5) {
-			  return false;
-		  }
-		  grades[nGrades] = grade;	
-		  nGrades++;
-		  return true;
-		 }
-	 
-	  boolean selectsGradesFrom9() { 
-		  for (int i = 0; i < nGrades; ++i)
-			  if (grades[i] < 9)
-				  return false;
-		  return true;
-		 }
-	  
-	  void print() {
-		  System.out.print(this.surnameAndInit + ". Group: " + Integer.toString(this.groupNumber) + ". Grades: " );
+	public void setGroupNumber(int groupNumber) {
+		this.groupNumber = groupNumber;
+	}	 
+			 
+	 public int[] getGrades() {
+		return grades;
+	}
 
-		  for (int i = 0; i < nGrades; ++i)
-			System.out.print(Integer.toString(grades[i]) + " ");
-		  	System.out.print("\n");
-	  }
+	public void setGrades(int[] grades) {
+		this.grades = grades;
+	}
+
+	public void addGrade(int grade1, int grade2, int grade3, int grade4, int grade5){
+		 grades[0] = grade1;
+		 grades[1] = grade2;
+		 grades[2] = grade3;
+		 grades[3] = grade4;
+		 grades[4] = grade5; 
+	 }
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + Arrays.hashCode(grades);
-		result = prime * result + Objects.hash(groupNumber, nGrades, surnameAndInit);
+		result = prime * result + Objects.hash(groupNumber, surnameAndInit);
 		return result;
 	}
 
@@ -76,7 +68,13 @@ public class Student {
 		if (getClass() != obj.getClass())
 			return false;
 		Student other = (Student) obj;
-		return Arrays.equals(grades, other.grades) && groupNumber == other.groupNumber && nGrades == other.nGrades
+		return Arrays.equals(grades, other.grades) && groupNumber == other.groupNumber
 				&& Objects.equals(surnameAndInit, other.surnameAndInit);
-	}		  
+	}
+
+	@Override
+	public String toString() {
+		return "Student [surnameAndInit=" + surnameAndInit + ", groupNumber=" + groupNumber + ", grades="
+				+ Arrays.toString(grades) + "]";
+	}	
 }

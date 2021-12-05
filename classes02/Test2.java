@@ -7,8 +7,7 @@ public class Test2 {
 	private int x;
 	private int y;
 	
-	public Test2() {
-		
+	public Test2() {		
 	}
 	
 	public Test2 (int x, int y) {
@@ -25,8 +24,7 @@ public class Test2 {
 	}
 	
 	public int getY() {
-		return y;
-		
+		return y;		
 	}
 	
 	public void setY(int y) {

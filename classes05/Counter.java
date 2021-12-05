@@ -4,79 +4,64 @@ import java.util.Objects;
 
 public class Counter {
 	
-	private int min;
-	private int max;
-	private int current;
-	
-	public Counter(int min, int max, int current) {
-	
-		this.min = min;
-		this.max = max;
-		this.current = current;
-		
-	if (this.max < this.min) {
-		int tmp = this.max;
-		this.max = this.min;
-		this.min = tmp;
-		}
-		  
-	if (this.current < this.min)
-		this.current = this.min;
-	if (this.current > this.max)
-		this.current = this.max;		  
-	}
-	
-	public Counter(int min, int max) { 
-		 
-		this(min, max, min); 
-		current = this.min;
-		 }
-	
-	public Counter() {
-		this(0, 16, 0);
-		 }
-	
-	public void inc() {
-		this.current++;
-	if (this.current > this.max)
-		this.current = this.min;
-		 }
-	public void dec() {
-		this.current--;
-	if (this.current < this.min)
-		this.current = this.max;
-		 }
-	public int value() {
-		return this.current;
-		 }
-		
-	public int getX() {
-		return min;
+    private int minValue;	
+    private int maxValue;	
+    private int count;	
+
+    public Counter() {
+        this.minValue = 0;
+        this.maxValue = 15;
+        this.count = 0;
+    }
+
+    public Counter(int minValue, int maxValue, int count) {    	
+        this.minValue = minValue;
+        this.maxValue = maxValue;
+        this.count = count;
+        
+        if (minValue > maxValue) {
+            int temp = this.maxValue;
+            this.maxValue = this.minValue;
+            this.minValue = temp;
+        }
+        
+        if (this.count < this.minValue)
+            this.count = this.minValue;
+        if (this.count > this.maxValue)
+            this.count = this.maxValue;
+    }
+               
+    public int getMinValue() {
+		return minValue;
 	}
 
-	public void setMin(int min) {
-		this.min = min;
-	}
-	
-	public int getMax() {
-		return max;
+	public void setMinValue(int minValue) {
+		this.minValue = minValue;
 	}
 
-	public void setMax(int max) {
-		this.max = max;
-	}
-	
-	public int getCurrent() {
-		return current;
+	public int getMaxValue() {
+		return maxValue;
 	}
 
-	public void setCurrent(int current) {
-		this.current = current;
+	public void setMaxValue(int maxValue) {
+		this.maxValue = maxValue;
 	}
+
+	public int getCount() {
+		return count;
+	}
+
+	public void setCount(int count) {
+		this.count = count;
+	}	
+	
+    public  int showCounter() {
+        return getCount();
+    }
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(current, max, min);
+		return Objects.hash(count, maxValue, minValue);
 	}
 
 	@Override
@@ -88,11 +73,11 @@ public class Counter {
 		if (getClass() != obj.getClass())
 			return false;
 		Counter other = (Counter) obj;
-		return current == other.current && max == other.max && min == other.min;
+		return count == other.count && maxValue == other.maxValue && minValue == other.minValue;
 	}
 
 	@Override
 	public String toString() {
-		return "Counter [min=" + min + ", max=" + max + ", current=" + current + "]";
-	}		
+		return "Counter [minValue=" + minValue + ", maxValue=" + maxValue + ", count=" + count + "]";
+	}  
 }

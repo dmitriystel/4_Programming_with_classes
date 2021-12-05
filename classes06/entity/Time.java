@@ -1,10 +1,10 @@
-package by.introduction.fourth.classes06.main;
+package by.introduction.fourth.classes06.entity;
 
 import java.util.Objects;
 
 public class Time {
 
-	private int hours;
+	private int hours;	
 	private int minutes;
 	private int seconds;
 
@@ -17,7 +17,6 @@ public class Time {
 		if (this.hours > 60) {
 			this.hours = 0;			
 		}
-
 		
 		if (this.minutes > 60) {
 			this.minutes = 0;			
@@ -28,30 +27,6 @@ public class Time {
 		}
 	}
 		
-	public void changeHours(int hours) {
-		this.hours = hours;
-		
-		if (this.hours > 60) {
-			this.hours = 0;			
-		}
-	}
-	
-	public void changeMinutes(int minutes) {
-		this.minutes = minutes;
-		
-		if (this.minutes > 60) {
-			this.minutes = 0;			
-		}
-	}
-	
-	public void changeSeconds(int seconds) {
-		this.seconds = seconds;
-		
-		if (this.seconds > 60) {
-			this.seconds = 0;			
-		}
-	}
-
 	public int getHours() {
 		return hours;
 	}
@@ -95,7 +70,6 @@ public class Time {
 	
 	@Override
 	public String toString() {
-		// return "Time [hour=" + hour + ", minute=" + minute + ", second=" + second + "]";
-		return hours + ":" + minutes + ":" +seconds;
+		return hours + ":" + minutes + ":" + seconds;
 	}
 }

@@ -1,6 +1,4 @@
 package by.introduction.fourth.classes03.main;
-
-import java.util.Random;
 /*
 4. Programming with classes
 
@@ -13,13 +11,13 @@ import java.util.Random;
  */
 public class Main {
 
-	public static void main(String[] args) {
-		
-		  int n = 10; 
+	public static void main(String[] args) {		
+		  int numberOfStudents = 10; 
 		  
-		  Student students[] = new Student[10]; 
+		  Student students[] = new Student[numberOfStudents]; 		  
+		  View view = new View();
 		  
-		  students[0] = new Student("D.Lawson", 1);	
+		  students[0] = new Student("D.Lawson", 2);	
 		  students[1] = new Student("D.Turner", 1);	
 		  students[2] = new Student("P.Gorman", 1);	
 		  students[3] = new Student("J.Suriol", 1);	
@@ -28,27 +26,20 @@ public class Main {
 		  students[6] = new Student("D.Eng", 2);	
 		  students[7] = new Student("R.Hoffarth", 2);
 		  students[8] = new Student("F.Trimble", 2);
-		  students[9] = new Student("R.Rau", 2);	
-		  
-		  Random rand = new Random();
-		  
-		  for (int i = 0; i < n; i++) {	
-			  for (int j = 0; j < 5; j++)	
-				  students[i].addGrade(8 + rand.nextInt(3));
-
-		  }
-		  
-		  System.out.println("all the students: "); 
-		  for (int i = 0; i < n; ++i) {
-		   students[i].print();
-		  }
-		  
-		  System.out.println();
-		  
-		  System.out.println("students with grades 9 and 10: ");
-		  for (int i = 0; i < n; ++i) {
-			  if (students[i].selectsGradesFrom9())
-				  students[i].print();
-		  }
+		  students[9] = new Student("R.Rau", 2);
+	
+		  students[0].addGrade(5, 8, 9, 6, 8);
+		  students[1].addGrade(9, 7, 9, 6, 8);
+		  students[2].addGrade(9, 7, 9, 6, 8);
+		  students[3].addGrade(9, 10, 9, 9, 10);
+		  students[4].addGrade(8, 7, 9, 7, 8);
+		  students[5].addGrade(5, 7, 6, 6, 8);
+		  students[6].addGrade(8, 9, 7, 8, 8);
+		  students[7].addGrade(10, 10, 9, 9, 10);
+		  students[8].addGrade(7, 6, 7, 6, 8);
+		  students[9].addGrade(8, 7, 8, 7, 9);
+		   	
+		  view.printAllListOfStudents(students);
+		  view.selectGradesFrom9(students);	  
   	}
 }

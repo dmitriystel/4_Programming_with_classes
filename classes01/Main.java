@@ -10,13 +10,18 @@ package by.introduction.fourth.classes01.main;
  */
 public class Main {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) {	
 		
-		Test1 one = new Test1(4, 5);
+		Test1 test = new Test1(4, 5);		
+		Logic log = new Logic();		
+		View view = new View();
 		
-		System.out.println("x: " +  one.getX());
-		System.out.println("y: " +  one.getY());		
-		System.out.println("sum: " + one.sum());		
-		System.out.println("max: " + one.max());
+		log.calculateSum(test.getX(), test.getY());
+		log.findMax(test.getX(), test.getY());
+				
+		view.printX(test.getX());
+		view.printY(test.getY());
+		view.printSum(log.calculateSum(test.getX(), test.getY()));
+		view.printMax(log.findMax(test.getX(), test.getY()));		
 	}
 }
